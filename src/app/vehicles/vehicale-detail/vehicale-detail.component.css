@@ -1,0 +1,22 @@
+.container {
+  max-width: 1200px;
+}
+
+.card-body {
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  padding: 5px 0;
+}

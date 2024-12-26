@@ -1,0 +1,152 @@
+<div class="container mt-4" *ngIf="selectedVehicle()">
+  <!-- Vehicle Image Section -->
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        class="img-fluid mb-4"
+        [src]="'assets/images/'+(selectedVehicle()?.images??[])[0]"
+        alt="{{ selectedVehicle()?.brand }} {{ selectedVehicle()?.model }}"
+      />
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          <h5>Vehicle Overview</h5>
+        </div>
+        <div class="card-body">
+          <h3>{{ selectedVehicle()?.brand }} {{ selectedVehicle()?.model }}</h3>
+          <p><strong>Type:</strong> {{ selectedVehicle()?.vehicleType }}</p>
+          <p><strong>Year of Manufacture:</strong> {{ selectedVehicle()?.yearOfManufacture }}</p>
+          <div class="ml-3">
+            <button
+              class="btn btn-primary"
+              (click)="addToCart(selectedVehicle()?.id!)"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vehicle Main Details Section -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#mainDetails">
+          <h5>Main Details</h5>
+        </div>
+        <div id="mainDetails" class="collapse">
+          <div class="card-body">
+            <p><strong>Condition:</strong> {{ selectedVehicle()?.condition }}</p>
+            <p><strong>Mileage:</strong> {{ selectedVehicle()?.mileage }}</p>
+            <p><strong>Engine Capacity:</strong> {{ selectedVehicle()?.engineCapacity }}</p>
+            <p><strong>Fuel Type:</strong> {{ selectedVehicle()?.fuelType }}</p>
+            <p><strong>Transmission:</strong> {{ selectedVehicle()?.transmission }}</p>
+            <p><strong>Drive Type:</strong> {{ selectedVehicle()?.driveType }}</p>
+            <p><strong>Seats:</strong> {{ selectedVehicle()?.seats }}</p>
+            <p><strong>Doors:</strong> {{ selectedVehicle()?.doors }}</p>
+            <p><strong>Color:</strong> {{ selectedVehicle()?.color }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration and Pricing Section -->
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#registrationPricing">
+          <h5>Registration & Pricing</h5>
+        </div>
+        <div id="registrationPricing" class="collapse">
+          <div class="card-body">
+            <p><strong>Registration Number:</strong> {{ selectedVehicle()?.registrationNumber }}</p>
+            <p><strong>Location:</strong> {{ selectedVehicle()?.location }}</p>
+            <p><strong>Price:</strong> {{ selectedVehicle()?.price | currency:'LKR':'symbol-narrow' }}</p>
+            <p><strong>Negotiable:</strong> {{ selectedVehicle()?.negotiable ? 'Yes' : 'No' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Safety Features Section -->
+  <div *ngIf="selectedVehicle()?.safetyFeatures?.length">
+    <div class="card mb-4">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#safetyFeatures">
+        <h5>Safety Features</h5>
+      </div>
+      <div id="safetyFeatures" class="collapse">
+        <div class="card-body">
+          <ul>
+            <li *ngFor="let feature of selectedVehicle()?.safetyFeatures">{{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Features Section -->
+  <div *ngIf="selectedVehicle()?.additionalFeatures?.length">
+    <div class="card mb-4">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#additionalFeatures">
+        <h5>Additional Features</h5>
+      </div>
+      <div id="additionalFeatures" class="collapse">
+        <div class="card-body">
+          <ul>
+            <li *ngFor="let feature of selectedVehicle()?.additionalFeatures">{{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insurance Details Section -->
+  <div *ngIf="selectedVehicle()?.insuranceDetails">
+    <div class="card mb-4">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#insuranceDetails">
+        <h5>Insurance Details</h5>
+      </div>
+      <div id="insuranceDetails" class="collapse">
+        <div class="card-body">
+          <p><strong>Insurance Type:</strong> {{ selectedVehicle()?.insuranceDetails?.type }}</p>
+          <p><strong>Insurance Expiry Date:</strong> {{ selectedVehicle()?.insuranceDetails?.expiryDate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seller and Contact Section -->
+  <div class="card mb-4">
+    <div class="card-header" data-bs-toggle="collapse" data-bs-target="#sellerInfo">
+      <h5>Seller Information</h5>
+    </div>
+    <div id="sellerInfo" class="collapse">
+      <div class="card-body">
+        <p><strong>Seller Name:</strong> {{ selectedVehicle()?.sellerName }}</p>
+        <p><strong>Contact Details:</strong></p>
+        <ul>
+          <li><strong>Phone:</strong> {{ selectedVehicle()?.contactDetails?.phone }}</li>
+          <li><strong>Email:</strong> {{ selectedVehicle()?.contactDetails?.email }}</li>
+          <li><strong>WhatsApp:</strong> {{ selectedVehicle()?.contactDetails?.whatsapp }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reason for Sale Section -->
+  <div *ngIf="selectedVehicle()?.reasonForSale">
+    <div class="card mb-4">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#reasonForSale">
+        <h5>Reason for Sale</h5>
+      </div>
+      <div id="reasonForSale" class="collapse">
+        <div class="card-body">
+          <p>{{ selectedVehicle()?.reasonForSale }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

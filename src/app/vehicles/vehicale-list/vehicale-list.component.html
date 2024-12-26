@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2 class="text-center">Vehicle Listings</h2>
+  <ul class="list-group">
+    <li
+      class="list-group-item vehicle-item"
+      *ngFor="let vehicle of vehicles()"
+      [ngClass]="{ 'selected': selectedVehicale() === vehicle }"
+      (click)="selectVehicale(vehicle)"
+    >
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ vehicle.brand }} {{ vehicle.model }}</strong> -
+          <span class="text-muted">{{ vehicle.yearOfManufacture }}</span><br />
+          <small>
+            <strong>Type:</strong> {{ vehicle.vehicleType }},
+            <strong>Condition:</strong> {{ vehicle.condition }},
+            <strong>Mileage:</strong> {{ vehicle.mileage }},
+            <strong>Location:</strong> {{ vehicle.location }},
+            <strong>Price:</strong> {{ vehicle.price | currency:'LKR':'symbol-narrow' }}
+          </small>
+        </div>
+        <div>
+          <img
+            [src]="'assets/images/'+vehicle.images[0]"
+            alt="{{ vehicle.brand }} {{ vehicle.model }}"
+            style="height: 60px; width: auto; border-radius: 5px;"
+          />
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

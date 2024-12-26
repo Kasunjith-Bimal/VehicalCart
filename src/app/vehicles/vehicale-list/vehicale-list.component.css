@@ -1,0 +1,16 @@
+/* Style for the vehicle item list */
+.vehicle-item {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicle-item:hover {
+  background-color: #f8f9f6; /* Lighter background on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adding a shadow */
+  cursor: pointer; /* Change the cursor to indicate interactivity */
+}
+
+.vehicle-item.selected {
+  background-color: #007bff; /* Blue background for selected item */
+  color: white; /* Text color for the selected item */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* Optional: Adding blue shadow */
+}

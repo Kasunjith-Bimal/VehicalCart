@@ -1,0 +1,17 @@
+<!-- <div class="container mt-4">
+  <h2 class="text-center">Cart</h2>
+  <ul class="list-group">
+    <app-cart-item
+      *ngFor="let item of cartItems"
+      [cartItem]="item"
+      (removeItem)="removeFromCart($event)"
+      (updateQuantity)="updateCartItemQuantity($event)"
+    ></app-cart-item>
+  </ul>
+  <div class="mt-4 text-right">
+    <h5>Total: {{ getTotal() | currency:'LKR':'symbol-narrow' }}</h5>
+    <button class="btn btn-primary" [disabled]="cartItems.length === 0" (click)="checkout()">
+      Checkout
+    </button>
+  </div>
+</div> -->
