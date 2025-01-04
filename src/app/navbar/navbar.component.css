@@ -1,0 +1,10 @@
+.cart-number {
+  background-color: white;
+  color: black;
+  border-radius: 80%;
+  width: 24px;
+  height: 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px solid #ccc;
+}
