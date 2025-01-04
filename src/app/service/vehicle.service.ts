@@ -19,7 +19,7 @@ export class VehicleService {
     this.http.get<Vehicle[]>(this.jsonUrl).subscribe({
       next: (vehicles) => {
         this.vehicles.set(vehicles);
-        this.setSelectedVehicale(vehicles[0])
+        //this.setSelectedVehicale(vehicles[0])
       },
       error: (err) => console.error('Failed to load vehicles:', err),
     });

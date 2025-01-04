@@ -1,6 +1,15 @@
 <div class='row'>
 <div class="col-md-4">
-  <app-vehicale-list></app-vehicale-list>
+  <br>
+  <div class="container row">
+    <div class="col-sm-2">
+      Filter By :
+    </div>
+    <div class="col-sm-2">
+      <input type="text" [(ngModel)]="filtertext"/>
+    </div>
+  </div>
+  <app-vehicale-list [listCriteria] ="filtertext"></app-vehicale-list>
 </div>
 <div class="col-md-8">
   <app-vehicale-detail></app-vehicale-detail>

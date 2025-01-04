@@ -1,6 +1,6 @@
 import { VehicleService } from './../../service/vehicle.service';
 import { CommonModule } from '@angular/common';
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, Input, OnInit, signal ,input} from '@angular/core';
 import { Vehicle } from '../../models/vehicle';
 import { CartService } from '../../service/cart.service';
 
@@ -11,6 +11,11 @@ import { CartService } from '../../service/cart.service';
   styleUrl: './vehicale-list.component.css'
 })
 export class VehicaleListComponent implements OnInit{
+
+  filtertext = input('',{
+    // transform:(value:string) => value.toLocaleLowerCase(),
+    alias : 'listCriteria'
+  });
 
   constructor(public  vehicleService : VehicleService) {
 
@@ -26,6 +31,9 @@ export class VehicaleListComponent implements OnInit{
       return [];
     }
   });
+
+
+  filterVehicals  =computed(() =>  this.vehicles().filter(v=> v.model?.includes(this.filtertext())));
 
   selectedVehicale = computed(() => {
         try {

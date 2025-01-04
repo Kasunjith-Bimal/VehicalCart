@@ -1,9 +1,9 @@
 <div class="container mt-4">
-  <h2 class="text-center">Vehicle Listings</h2>
+
   <ul class="list-group">
     <li
       class="list-group-item vehicle-item"
-      *ngFor="let vehicle of vehicles()"
+      *ngFor="let vehicle of filterVehicals()"
       [ngClass]="{ 'selected': selectedVehicale() === vehicle }"
       (click)="selectVehicale(vehicle)"
     >
