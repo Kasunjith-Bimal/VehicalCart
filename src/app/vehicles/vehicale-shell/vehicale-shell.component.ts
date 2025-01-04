@@ -14,4 +14,7 @@ import { VehiclesFilterComponent } from '../vehicles-filter/vehicles-filter.comp
 export class VehicaleShellComponent {
   filtertext = signal('');
 
+  filterList(filterText :string){
+   this.filtertext.set(filterText);
+  }
 }

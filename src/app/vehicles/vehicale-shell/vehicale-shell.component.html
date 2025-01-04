@@ -1,7 +1,7 @@
 <div class='row'>
 <div class="col-md-4">
   <br>
-  <app-vehicles-filter [(filterCriteria)]="filtertext"  ></app-vehicles-filter>
+  <app-vehicles-filter (filterChange)="filterList($event)"  ></app-vehicles-filter>
   <app-vehicale-list [listCriteria] ="filtertext()"></app-vehicale-list>
 </div>
 <div class="col-md-8">
