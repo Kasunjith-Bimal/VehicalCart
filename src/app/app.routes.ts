@@ -14,5 +14,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./cart/cart-shell/cart-shell.component').then(c => c.CartShellComponent)
   },
+  {
+    path: 'sample',
+    loadComponent: () =>
+      import('./sample/sample.component').then(c => c.SampleComponent)
+  },
   { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
 ];
