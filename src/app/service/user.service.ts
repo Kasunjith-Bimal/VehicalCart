@@ -24,4 +24,8 @@ export class UserService {
         });
   }
 
+  getCurrentMember(id: number): User | undefined {
+    return this.members().find(m => m.id === id);
+  }
+
 }
