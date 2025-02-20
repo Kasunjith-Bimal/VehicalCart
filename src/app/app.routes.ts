@@ -25,5 +25,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./to-do-sample/to-do-sample.component').then(c => c.ToDoSampleComponent)
   },
+  {
+    path: 'linked',
+    loadComponent: () =>
+      import('./linked-signal-sample/linked-signal-sample.component').then(c => c.LinkedSignalSampleComponent)
+  },
   { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
 ];

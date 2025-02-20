@@ -1,0 +1,12 @@
+<h1>Star Wars Vehicle Sales</h1>
+<select class="select" (change)="onSelectedVehicle($event.target)">
+  <option value="" disabled selected>--Select a vehicle--</option>
+  @for(vehicle of vehicles(); track vehicle) {
+    <option [value]='vehicle.id'>{{ vehicle.model }}</option>
+  }
+</select>
+<div>Quantity: <input type='number' [(ngModel)]='quantity' ></div>
+<div>Vehicle: {{ selectedVehicle()?.model }}</div>
+<!-- <div>Movie: {{ movie()?.title }}</div> -->
+<div>Price: {{ selectedVehicle()?.price }}</div>
+<div [style.color]='color()'>Total: {{ total() }}</div>

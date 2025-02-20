@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { Vehicle } from '../models/vehicle';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { rxResource } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class VehicleService {
       error: (err) => console.error('Failed to load vehicles:', err),
     });
   }
+
+  vehiclesList = rxResource({
+    loader:() => this.http.get<Vehicle[]>(this.jsonUrl)
+  })
 
   // getVehicles(): Vehicle[] {
   //   return this.vehicles();
